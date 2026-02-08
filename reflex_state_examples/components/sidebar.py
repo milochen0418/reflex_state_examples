@@ -41,7 +41,7 @@ def sidebar() -> rx.Component:
                     class_name="px-4 mb-3 text-xs font-bold text-gray-400 uppercase tracking-widest",
                 ),
                 rx.el.div(
-                    nav_item("In-Memory State", "database", "/"),
+                    nav_item("In-Memory State", "database", "/in-memory"),
                     nav_item("Derived State", "calculator", "/derived"),
                     nav_item("Backend Sync", "refresh-cw", "/sync"),
                     nav_item("Transactional", "shield-check", "/transactional"),

@@ -7,8 +7,12 @@ from reflex_state_examples.states.example_four_view import example_four_content
 from reflex_state_examples.states.navigation import NavState
 
 
-def index() -> rx.Component:
+def inmemory_page() -> rx.Component:
     return layout(example_one_content())
+
+
+def index() -> rx.Component:
+    return rx.el.div()
 
 
 def derived_page() -> rx.Component:
@@ -34,7 +38,8 @@ app = rx.App(
         ),
     ],
 )
-app.add_page(index, route="/")
+app.add_page(inmemory_page, route="/in-memory")
+app.add_page(index, route="/", on_load=rx.redirect("/in-memory"))
 app.add_page(derived_page, route="/derived")
 app.add_page(sync_page, route="/sync")
 app.add_page(transactional_page, route="/transactional")
