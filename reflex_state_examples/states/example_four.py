@@ -1,8 +1,10 @@
-import reflex as rx
 import re
 
+import reflex as rx
+from pydantic import BaseModel
 
-class TransactionalUser(rx.Base):
+
+class TransactionalUser(BaseModel):
     name: str = "John Doe"
     email: str = "john@example.com"
     theme: str = "light"

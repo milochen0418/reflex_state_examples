@@ -7,7 +7,7 @@ packages = [{ include = "reflex_state_examples" }]
 
 [tool.poetry.dependencies]
 python = "~3.11"
-reflex = "0.8.24.post1"
+reflex = "^0.8.24.post1"
 faker = "*"
 
 [build-system]

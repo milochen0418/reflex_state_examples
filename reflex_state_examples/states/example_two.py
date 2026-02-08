@@ -1,8 +1,10 @@
-import reflex as rx
 import logging
 
+import reflex as rx
+from pydantic import BaseModel
 
-class Product(rx.Base):
+
+class Product(BaseModel):
     id: int
     name: str
     price: float
@@ -52,10 +54,10 @@ class ExampleTwoState(rx.State):
         return self.subtotal - self.discount_amount + self.tax_amount
 
     @rx.event
-    def change_quantity(self, val: str):
+    def change_quantity(self, val: float):
         try:
             self.quantity = max(1, int(val))
-        except ValueError as e:
+        except (TypeError, ValueError) as e:
             logging.exception(f"Error: {e}")
             self.quantity = 1
 

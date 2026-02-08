@@ -1,12 +1,14 @@
-import reflex as rx
 import asyncio
 import random
+
+import reflex as rx
+from pydantic import BaseModel
 from faker import Faker
 
 fake = Faker()
 
 
-class User(rx.Base):
+class User(BaseModel):
     id: int
     name: str
     email: str
