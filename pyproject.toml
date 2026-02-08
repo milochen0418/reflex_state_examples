@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "reflex-state-examples"
+version = "0.1.0"
+description = "Reflex state management demo app."
+authors = ["Your Name <you@example.com>"]
+packages = [{ include = "reflex_state_examples" }]
+
+[tool.poetry.dependencies]
+python = "~3.11"
+reflex = "0.8.24.post1"
+faker = "*"
+
+[build-system]
+requires = ["poetry-core>=1.6.0"]
+build-backend = "poetry.core.masonry.api"
