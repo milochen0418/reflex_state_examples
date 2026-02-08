@@ -4,6 +4,7 @@ from reflex_state_examples.states.example_one import example_one_content
 from reflex_state_examples.states.example_two import example_two_content
 from reflex_state_examples.states.example_three import example_three_content
 from reflex_state_examples.states.example_four import example_four_content
+from reflex_state_examples.states.example_five import example_five_content
 from reflex_state_examples.states.navigation import NavState
 
 
@@ -27,6 +28,10 @@ def transactional_page() -> rx.Component:
     return layout(example_four_content())
 
 
+def redis_page() -> rx.Component:
+    return layout(example_five_content())
+
+
 app = rx.App(
     theme=rx.theme(appearance="light"),
     head_components=[
@@ -43,3 +48,4 @@ app.add_page(index, route="/", on_load=rx.redirect("/in-memory"))
 app.add_page(derived_page, route="/derived")
 app.add_page(sync_page, route="/sync")
 app.add_page(transactional_page, route="/transactional")
+app.add_page(redis_page, route="/redis-sync")

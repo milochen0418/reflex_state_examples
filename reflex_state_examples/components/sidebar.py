@@ -45,6 +45,7 @@ def sidebar() -> rx.Component:
                     nav_item("Derived State", "calculator", "/derived"),
                     nav_item("Backend Sync", "refresh-cw", "/sync"),
                     nav_item("Transactional", "shield-check", "/transactional"),
+                    nav_item("Redis Pub/Sub", "radio", "/redis-sync"),
                     class_name="flex flex-col gap-2",
                 ),
                 class_name="flex-1",

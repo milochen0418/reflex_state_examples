@@ -37,6 +37,31 @@ poetry run ./reflex_rerun.sh
 
 The application will be available at `http://localhost:3000`.
 
+## Example 5: Redis Pub/Sub
+
+Example 5 uses Redis Pub/Sub to sync state across sessions. You must have a Redis server running before opening the page.
+
+### Quick start (macOS)
+
+**Homebrew (recommended)**
+
+```bash
+brew install redis
+brew services start redis
+```
+
+**Docker**
+
+```bash
+brew install --cask docker
+docker run --name redis -p 6379:6379 -d redis
+```
+
+### Environment overrides
+
+- `REDIS_URL` (default: `redis://localhost:6379/0`)
+- `REDIS_CHANNEL` (default: `reflex:example5`)
+
 ## Documentation
 
 - [docs/Reflex State Examples - Kid-Friendly Tutorials.pdf](docs/Reflex%20State%20Examples%20-%20Kid-Friendly%20Tutorials.pdf)
