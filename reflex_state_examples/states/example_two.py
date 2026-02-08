@@ -160,6 +160,17 @@ def example_two_content() -> rx.Component:
                         "Derived Pricing Engine", class_name="text-xl font-bold mb-6"
                     ),
                     rx.el.div(
+                        rx.icon(
+                            ExampleTwoState.selected_product.icon,
+                            class_name="h-5 w-5 text-indigo-600",
+                        ),
+                        rx.el.p(
+                            ExampleTwoState.selected_product.name,
+                            class_name="font-semibold text-gray-800",
+                        ),
+                        class_name="flex items-center gap-2 mb-4",
+                    ),
+                    rx.el.div(
                         summary_line(
                             "Unit Price",
                             f"${ExampleTwoState.selected_product.price:.2f}",
