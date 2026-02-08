@@ -37,3 +37,7 @@ poetry run ./reflex_rerun.sh
 
 The application will be available at `http://localhost:3000`.
 
+## Documentation
+
+- [docs/Reflex State Examples - Kid-Friendly Tutorials.pdf](docs/Reflex%20State%20Examples%20-%20Kid-Friendly%20Tutorials.pdf)
+
