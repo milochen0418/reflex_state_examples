@@ -1,9 +1,9 @@
 import reflex as rx
 from reflex_state_examples.components.layout import layout
-from reflex_state_examples.states.example_one_view import example_one_content
-from reflex_state_examples.states.example_two_view import example_two_content
-from reflex_state_examples.states.example_three_view import example_three_content
-from reflex_state_examples.states.example_four_view import example_four_content
+from reflex_state_examples.states.example_one import example_one_content
+from reflex_state_examples.states.example_two import example_two_content
+from reflex_state_examples.states.example_three import example_three_content
+from reflex_state_examples.states.example_four import example_four_content
 from reflex_state_examples.states.navigation import NavState
 
 
