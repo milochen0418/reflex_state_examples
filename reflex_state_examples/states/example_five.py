@@ -1,5 +1,6 @@
 import json
 import os
+import time
 import uuid
 
 import redis.asyncio as redis
@@ -8,6 +9,7 @@ from pydantic import BaseModel
 
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 REDIS_CHANNEL = os.getenv("REDIS_CHANNEL", "reflex:example5")
+REDIS_STATE_KEY = os.getenv("REDIS_STATE_KEY", "reflex:example5:state")
 
 
 class Product(BaseModel):
@@ -96,6 +98,12 @@ class ExampleFiveState(rx.State):
         }
         client = redis.from_url(REDIS_URL, decode_responses=True)
         try:
+            state_record = {
+                "label": label,
+                "payload": payload,
+                "updated_at": time.time(),
+            }
+            await client.set(REDIS_STATE_KEY, json.dumps(state_record))
             await client.publish(REDIS_CHANNEL, json.dumps(message))
             async with self:
                 self.last_message = f"Sent: {label}"
@@ -358,6 +366,10 @@ def example_five_content() -> rx.Component:
                             ),
                             rx.el.p(
                                 "URL: configured via REDIS_URL",
+                                class_name="text-xs text-gray-500",
+                            ),
+                            rx.el.p(
+                                f"Key: {REDIS_STATE_KEY}",
                                 class_name="text-xs text-gray-500",
                             ),
                             rx.el.p(
